@@ -37,7 +37,3 @@ def on_event(event):
 
 def script_load(settings):
     obspython.obs_frontend_add_event_callback(on_event)
-
-
-def script_description():
-    "Triggered when the current scene has changed."
