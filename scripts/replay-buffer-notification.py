@@ -14,7 +14,7 @@ def show_notification(message, path=None):
         newToast.on_activated = lambda _: show_in_file_manager(path)
     
     toaster.show_toast(newToast)
-    print(message)
+    print(f'Toast showed with message: "{message}"')
 
 
 async def get_last_replay_buffer_path():
@@ -43,6 +43,9 @@ def on_event(event):
     }
 
     message = messages.get(event)
+    
+    if message is None:
+        return
     
     if event == obspython.OBS_FRONTEND_EVENT_REPLAY_BUFFER_SAVED:
         try:
